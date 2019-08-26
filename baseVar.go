@@ -56,3 +56,24 @@ c[0] = 'c'
 s2 := string(c)  // 再转换回 string 类型
 fmt.Printf("%s\n", s2)
 
+// Go中可以使用+操作符来连接两个字符串：
+
+s := "hello"
+m := "world"
+a := s + m
+fmt.Printf("%s\n", a)
+
+// 修改字符串也可写为：
+
+s := "hello"
+s = "c" + s[1:] // 字符串虽不能更改，但可进行切片操作
+fmt.Printf("%s\n", s)
+
+// 如果要声明一个多行的字符串怎么办？可以通过`来声明：
+
+m := `hello
+	world`
+
+
+
+
