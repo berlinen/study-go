@@ -66,4 +66,44 @@ b = ar[3:5]
 
 // 注意slice和数组在声明时的区别：声明数组时，方括号内写明了数组的长度或使用...自动计算长度，而声明slice时，方括号内没有任何字符。
 
+// slice有一些简便的操作
 
+/*
+* slice的默认开始位置是0，ar[:n]等价于ar[0:n]
+* slice的第二个序列默认是数组的长度，ar[n:]等价于ar[n:len(ar)]
+* 如果从一个数组里面直接获取slice，可以这样ar[:]，因为默认第一个序列是0，第二个是数组的长度，即等价于ar[0:len(ar)]
+*/
+
+// 下面这个例子展示了更多关于slice的操作：
+
+// 声明一个数组
+var array = [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
+// 声明两个slice
+var aslice, bslice []byte
+
+// 演示一些简便操作
+aSlice = array[:3] // 等价于aSlice = array[0:3] aSlice包含元素: a,b,c
+aSlice = array[5:] // 等价于aSlice = array[5:10] aSlice包含元素: f,g,h,i,j
+aSlice = array[:]  // 等价于aSlice = array[0:10] 这样aSlice包含了全部的元素
+
+// 从slice中获取slice
+aSlice = array[3:7]  // aSlice包含元素: d,e,f,g，len=4，cap=7
+bSlice = aSlice[1:3] // bSlice 包含aSlice[1], aSlice[2] 也就是含有: e,f
+bSlice = aSlice[:3]  // bSlice 包含 aSlice[0], aSlice[1], aSlice[2] 也就是含有: d,e,f
+bSlice = aSlice[0:5] // 对slice的slice可以在cap范围内扩展，此时bSlice包含：d,e,f,g,h
+bSlice = aSlice[:]   // bSlice包含所有aSlice的元素: d,e,f,g
+
+// slice是引用类型，所以当引用改变其中元素的值时，其它的所有引用都会改变该值，例如上面的aSlice和bSlice，如果修改了aSlice中元素的值，那么bSlice相对应的值也会改变。
+
+// 从概念上面来说slice像一个结构体，这个结构体包含了三个元素：
+
+/*
+* 一个指针，指向数组中slice指定的开始位置
+* 长度，即slice的长度
+* 最大长度，也就是slice开始位置到数组的最后位置的长度
+*/
+
+Array_a := [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
+Slice_a := Array_a[2:5]
+
+// 
