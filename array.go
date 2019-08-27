@@ -106,4 +106,23 @@ bSlice = aSlice[:]   // bSlice包含所有aSlice的元素: d,e,f,g
 Array_a := [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
 Slice_a := Array_a[2:5]
 
-// 
+// 对于slice有几个有用的内置函数：
+
+/*
+* len 获取slice的长度
+* cap 获取slice的最大容量
+* append 向slice里面追加一个或者多个元素，然后返回一个和slice一样类型的slice
+* copy 函数copy从源slice的src中复制元素到目标dst，并且返回复制的元素的个数
+*/
+
+// 注：append函数会改变slice所引用的数组的内容，从而影响到引用同一数组的其它slice。
+// 但当slice中没有剩余空间（即(cap-len) == 0）时，此时将动态分配新的数组空间。返回的slice数组指针将指向这个空间，
+// 而原数组的内容将保持不变；其它引用此数组的slice则不受影响。
+
+// 从Go1.2开始slice支持了三个参数的slice，之前我们一直采用这种方式在slice或者array基础上来获取一个slice
+
+var array [10]int
+slice := array[2:4]  // 这个例子里面slice的容量是8，新版本里面可以指定这个容量
+
+slice = array[2:4:7] // 上面这个的容量就是7-2，即5。这样这个产生的新的slice就没办法访问最后的三个元素。
+// 如果slice是这样的形式array[:i:j]，即第一个参数为空，默认值就是0。
