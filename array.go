@@ -180,3 +180,9 @@ m := make(map[string]string)
 m["Hello"] = "Bonjour"
 m1 := m
 m1["Hello"] = "Salut"  // 现在m["hello"]的值已经是Salut了
+
+// make、new操作
+
+// make用于内建类型（map、slice 和channel）的内存分配。new用于各种类型的内存分配。
+
+// 内建函数new本质上说跟其它语言中的同名函数功能一样：new(T)分配了零值填充的T类型的内存空间，并且返回其地址，即一个*T类型的值。用Go的术语说，它返回了一个指针，指向新分配的类型T的零值。有一点非常重要
