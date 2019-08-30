@@ -69,3 +69,19 @@ func main () {
 }
 
 输出：sum is equal to 45
+
+有些时候需要进行多个赋值操作，由于Go里面没有,操作符，那么可以使用平行赋值i, j = i+1, j-1
+
+有些时候如果我们忽略expression1和expression3：
+
+sum := 1
+for ; sum < 1000; {
+	sum += sum
+}
+
+其中;也可以省略，那么就变成如下的代码了，是不是似曾相识？对，这就是while的功能。
+
+sum := 1
+for sum < 1000 {
+	sum += sum
+}
