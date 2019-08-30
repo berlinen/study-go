@@ -112,3 +112,20 @@ for k,v:=range map {
 for _, v := range map{
 	fmt.Println("map's val:", v)
 }
+
+// --------------------------------------------------------------------------------
+
+switch
+
+有些时候你需要写很多的if-else来实现一些逻辑处理，这个时候代码看上去就很丑很冗长，而且也不易于以后的维护，这个时候switch就能很好的解决这个问题。它的语法如下
+
+switch sExpr {
+case expr1:
+	some instructions
+case expr2:
+	some other instructions
+case expr3:
+	some other instructions
+default:
+	other code
+}
