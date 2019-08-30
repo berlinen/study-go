@@ -85,3 +85,24 @@ sum := 1
 for sum < 1000 {
 	sum += sum
 }
+
+在循环里面有两个关键操作break和continue	,break操作是跳出当前循环，continue是跳过本次循环。当嵌套过深的时候，break可以配合标签使用，即跳转至标签所指定的位置，详细参考如下例子：
+
+for index := 10; index > 0; index-- {
+	if index == 5{
+		break // 或者continue
+	}
+	fmt.println(index)
+}
+
+// break打印出来10、9、8、7、6
+// continue打印出来10、9、8、7、6、4、3、2、1
+
+break和continue还可以跟着标号，用来跳到多重循环中的外层循环
+
+for配合range可以用于读取slice和map的数据：
+
+for k,v:=range map {
+	fmt.Println("map's key:",k)
+	fmt.Println("map's val:",v)
+}
