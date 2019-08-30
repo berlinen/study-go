@@ -106,3 +106,9 @@ for k,v:=range map {
 	fmt.Println("map's key:",k)
 	fmt.Println("map's val:",v)
 }
+
+由于 Go 支持 “多值返回”, 而对于“声明而未被调用”的变量, 编译器会报错, 在这种情况下, 可以使用_来丢弃不需要的返回值 例如
+
+for _, v := range map{
+	fmt.Println("map's val:", v)
+}
