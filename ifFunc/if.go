@@ -143,3 +143,33 @@ case 10:
 default:
 	fmt.Println("All I know is that i is an integer")
 }
+
+在第5行中，我们把很多值聚合在了一个case里面，同时，Go里面switch默认相当于每个case最后带有break，匹配成功后不会自动向下执行其他case，而是跳出整个switch, 但是可以使用fallthrough强制执行后面的case代码。
+
+integer := 6
+switch integer {
+case 4:
+	fmt.Println("The integer was <= 4")
+	fallthrough
+case 5:
+	fmt.Println("The integer was <= 5")
+	fallthrough
+case 6:
+	fmt.Println("The integer was <= 6")
+	fallthrough
+case 7:
+	fmt.Println("The integer was <= 7")
+	fallthrough
+case 8:
+	fmt.Println("The integer was <= 8")
+	fallthrough
+default:
+	fmt.Println("default case")
+}
+
+上面的程序将输出
+
+The integer was <= 6
+The integer was <= 7
+The integer was <= 8
+default case
