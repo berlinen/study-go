@@ -21,3 +21,13 @@ if x := computedValue(); x > 10 {
 
 //这个地方如果这样调用就编译出错了，因为x是条件里面的变量
 fmt.Println(x)
+
+// 多个条件的时候如下所示：
+
+if integer == 3 {
+	fmt.Println("The integer is equal to 3")
+} else if integer < 3 {
+	fmt.Println("The integer is less than 3")
+} else {
+	fmt.Println("The integer is greater than 3")
+}
