@@ -129,3 +129,17 @@ case expr3:
 default:
 	other code
 }
+
+sExpr和expr1、expr2、expr3的类型必须一致。Go的switch非常灵活，表达式不必是常量或整数，执行的过程从上至下，直到找到匹配项；而如果switch没有表达式，它会匹配true
+
+i := 10
+switch i {
+case 1:
+	fmt.Println("i is equal to 1")
+case 2, 3, 4:
+	fmt.Println("i is equal to 2, 3 or 4")
+case 10:
+	fmt.Println("i is equal to 10")
+default:
+	fmt.Println("All I know is that i is an integer")
+}
