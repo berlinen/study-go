@@ -54,3 +54,18 @@ for expression1; expression2; expression3 {
 
 expression1、expression2和expression3都是表达式，其中expression1和expression3是变量声明或者函数调用返回值之类的，expression2是用来条件判断，expression1在循环开始之前调用，expression3在每轮循环结束之时调用。
 
+一个例子比上面讲那么多更有用，那么我们看看下面的例子吧：
+
+package main
+
+import "fmt"
+
+func main () {
+	sum := 0
+	for index := 0; index < 10; index++ {
+		sum += index
+	}
+	fmt.Println("sum is equal to", sum)
+}
+
+输出：sum is equal to 45
