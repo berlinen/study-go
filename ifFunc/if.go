@@ -31,3 +31,26 @@ if integer == 3 {
 } else {
 	fmt.Println("The integer is greater than 3")
 }
+
+// goto
+
+// Go有goto语句——请明智地使用它。用goto跳转到必须在当前函数内定义的标签。例如假设这样一个循环：
+
+func myFunc () {
+	i := 0
+Here:  //这行的第一个词，以冒号结束作为标签
+	println(i)
+	i++
+	goto Here   //跳转到Here去
+}
+
+标签名是大小写敏感的。
+
+Go里面最强大的一个控制逻辑就是for，它既可以用来循环读取数据，又可以当作while来控制逻辑，还能迭代操作。它的语法如下：
+
+for expression1; expression2; expression3 {
+	//...
+}
+
+expression1、expression2和expression3都是表达式，其中expression1和expression3是变量声明或者函数调用返回值之类的，expression2是用来条件判断，expression1在循环开始之前调用，expression3在每轮循环结束之时调用。
+
