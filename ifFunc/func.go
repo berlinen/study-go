@@ -48,3 +48,27 @@ func main() {
 上面这个里面我们可以看到max函数有两个参数，它们的类型都是int，那么第一个变量的类型可以省略（即 a,b int,而非 a int, b int)，默认为离它最近的类型，同理多于2个同类型的变量或者返回值。同时我们注意到它的返回值就是一个类型，这个就是省略写法。
 
 
+多个返回值
+
+Go语言比C更先进的特性，其中一点就是函数能够返回多个值。
+
+我们直接上代码看例子
+
+package main
+
+import "fmt"
+
+//返回 A+B 和 A*B
+func SumAndProduct(A, B int) (int, int) {
+	return A+B, A*B
+}
+
+func main() {
+	x := 3
+	y := 4
+
+	xPLUSy, xTIMESy := SumAndProduct(x, y)
+
+	fmt.Printf("%d + %d = %d\n", x, y, xPLUSy)
+	fmt.Printf("%d * %d = %d\n", x, y, xTIMESy)
+}
