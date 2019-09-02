@@ -72,3 +72,12 @@ func main() {
 	fmt.Printf("%d + %d = %d\n", x, y, xPLUSy)
 	fmt.Printf("%d * %d = %d\n", x, y, xTIMESy)
 }
+
+上面的例子我们可以看到直接返回了两个参数，当然我们也可以命名返回参数的变量，这个例子里面只是用了两个类型，我们也可以改成如下这样的定义，然后返回的时候不用带上变量名，因为直接在函数里面初始化了。但如果你的函数是导出的(首字母大写)，官方建议：最好命名返回值，因为不命名返回值，虽然使得代码更加简洁了，但是会造成生成的文档可读性差。
+
+func SumAndProduct(A, B int) (add int, Multiplied int) {
+	add = A+B
+	Multiplied = A*B
+	return
+}
+
