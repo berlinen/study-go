@@ -17,3 +17,30 @@ func funcName(input1 type1, input2 type2) (output1 type1, output2 type2) {
 如果只有一个返回值且不声明返回值变量，那么你可以省略 包括返回值 的括号
 如果没有返回值，那么就直接省略最后的返回信息
 如果有返回值， 那么必须在函数的外层添加return语句
+
+下面我们来看一个实际应用函数的例子（用来计算Max值）
+
+package main
+
+import "fmt"
+
+// 返回a、b中最大值.
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func main() {
+	x := 3
+	y := 4
+	z := 5
+
+	max_xy := max(x, y) //调用函数max(x, y)
+	max_xz := max(x, z) //调用函数max(x, z)
+
+	fmt.Printf("max(%d, %d) = %d\n", x, y, max_xy)
+	fmt.Printf("max(%d, %d) = %d\n", x, z, max_xz)
+	fmt.Printf("max(%d, %d) = %d\n", y, z, max(y,z)) // 也可在这直接调用它
+}
