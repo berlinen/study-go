@@ -92,3 +92,30 @@ arg ...int告诉Go这个函数接受不定数量的参数。注意，这些参�
 for _, n := range arg {
 	fmt.Printf("And the number is: %d\n", n)
 }
+
+传值与传指针
+
+当我们传一个参数值到被调用函数里面时，实际上是传了这个值的一份copy，当在被调用函数中修改参数值的时候，调用函数中相应实参不会发生任何变化，因为数值变化只作用在copy上。
+
+为了验证我们上面的说法，我们来看一个例子
+
+package main
+
+import "fmt"
+
+//简单的一个函数，实现了参数+1的操作
+func add1(a int) int {
+	a = a+1 // 我们改变了a的值
+	return a //返回一个新值
+}
+
+func main() {
+	x := 3
+
+	fmt.Println("x = ", x)  // 应该输出 "x = 3"
+
+	x1 := add1(x)  //调用add1(x)
+
+	fmt.Println("x+1 = ", x1) // 应该输出"x+1 = 4"
+	fmt.Println("x = ", x)    // 应该输出"x = 3"
+}
