@@ -179,4 +179,17 @@ func ReadWrite() bool {
 	return true
 }
 
+我们看到上面有很多重复的代码，Go的defer有效解决了这个问题。使用它后，不但代码量减少了很多，而且程序变得更优雅。在defer后指定的函数会在函数退出前调用。
+
+func ReadWrite() bool {
+	file.Open("file")
+	defer file.Close()
+	if failureX {
+		return false
+	}
+	if failureY {
+		return false
+	}
+	return true
+}
 
