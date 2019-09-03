@@ -81,3 +81,14 @@ func SumAndProduct(A, B int) (add int, Multiplied int) {
 	return
 }
 
+变参
+
+Go函数支持变参。接受变参的函数是有着不定数量的参数的。为了做到这点，首先需要定义函数使其接受变参：
+
+func myfunc(arg ...int) {}
+
+arg ...int告诉Go这个函数接受不定数量的参数。注意，这些参数的类型全部是int。在函数体中，变量arg是一个int的slice：
+
+for _, n := range arg {
+	fmt.Printf("And the number is: %d\n", n)
+}
